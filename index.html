@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Dog API</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center">
+              <h1>Cadastro</h1>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <select class="form-control" name="racas" id="racas">
+                  <option value="">Selecione uma raça</option>
+                </select>
+              </div>
+              <div class="form-group col-6">
+                <input type="text" class="form-control" name="nomeCachorro" id="nomeCachorro" placeholder="Nome">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-6">
+                <select class="form-control" name="cor" id="cor">
+                  <option value="">Selecione uma cor</option>
+                  <option value="#836FFF">SlateBlue1</option>
+                  <option value="#7FFFD4">Aquamarine</option>
+                  <option value="#90EE90">LightGreen</option>
+                  <option value="#DAA520">Goldenrod</option>
+                  <option value="#4B0082">Indigo</option>
+                </select>
+              </div>
+              <div class="form-group col-6">
+                <select class="form-control" name="fonte" id="fonte">
+                  <option value="">Selecione uma fonte</option>
+                  <option value="@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap')">Roboto</option>
+                  <option value="@import url('https://fonts.googleapis.com/css?family=Molle:400i&display=swap')">Molle</option>
+                  <option value="@import url('https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap')">Uncial Antiqua</option>
+                  <option value="@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap')">Fjalla One</option>
+                  <option value="@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap')">Lobster</option>
+                </select>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <div class="col-4 mt-3 mb-3" id="img">
+                <div class="text-center" id="nomeCachorro">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+
+          //API DOG RAÇAS
+          var link ="https://dog.ceo/api/breeds/list/all";
+          var option = '<option>';
+          $.ajax({
+          url: link,
+          type: 'GET',
+          dataType: 'json',
+          })
+          .done(function(data) {
+            console.log("success");
+            console.log(data);
+            if (data != null) {
+              $.each(data.message, function (i, d) {
+                  $('<option>').val(i).text(i).appendTo($('#racas'));
+              });
+            }
+          })
+          .fail(function() {
+            console.log("error");
+          })
+          .always(function() {
+            console.log("complete");
+          });
+
+
+          //API IMG RAÇAS
+          $('#racas').on('change', function() {
+            $('img').remove();
+            var racaEscolhida = $('#racas').val();
+            $.ajax({
+            url: 'https://dog.ceo/api/breed/'+racaEscolhida+'/images',
+            type: 'GET',
+            dataType: 'json',
+            })
+            .done(function(raca) {
+              console.log("success");
+              console.log(raca);
+              if (raca != null) {
+                  console.log(raca);
+                  $('#img').append('<img>');
+                  $('img').attr('src', raca.message[Math.floor(Math.random(0,50))]).css('width','100%');
+              }
+            })
+            .fail(function() {
+              console.log("error");
+            })
+            .always(function() {
+              console.log("complete");
+            });
+          })
+        });
+
+        
+    </script>
+  </body>
+</html>
