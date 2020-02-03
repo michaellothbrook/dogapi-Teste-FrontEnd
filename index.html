@@ -5,6 +5,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fontselect-jquery/styles/fontselect-default.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -12,23 +15,21 @@
   <body>
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-6">
             <div class="text-center">
-              <h1>Cadastro</h1>
+              <h1>CADASTRO</h1>
             </div>
             <div class="form-row">
-              <div class="form-group col-6">
-                <select class="form-control" name="racas" id="racas">
+              <div class="form-group col-12">
+                <select class="form-control" name="racas" id="racas" required>
                   <option value="">Selecione uma raça</option>
                 </select>
               </div>
-              <div class="form-group col-6">
-                <input type="text" class="form-control" name="nomeCachorro" id="nomeCachorro" placeholder="Nome">
+              <div class="form-group col-12">
+                <input type="text" class="form-control" name="nomeCachorro" id="nomeCachorro" placeholder="Nome" required>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-6">
-                <select class="form-control" name="cor" id="cor">
+              <div class="form-group col-12">
+                <select class="form-control" name="cor" id="cor" required>
                   <option value="">Selecione uma cor</option>
                   <option value="#836FFF">SlateBlue1</option>
                   <option value="#7FFFD4">Aquamarine</option>
@@ -37,22 +38,25 @@
                   <option value="#4B0082">Indigo</option>
                 </select>
               </div>
-              <div class="form-group col-6">
-                <select class="form-control" name="fonte" id="fonte">
+              <div class="form-group col-12">
+                <select class="form-control" name="fonte" id="fonte" required>
                   <option value="">Selecione uma fonte</option>
-                  <option value="@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap')">Roboto</option>
-                  <option value="@import url('https://fonts.googleapis.com/css?family=Molle:400i&display=swap')">Molle</option>
-                  <option value="@import url('https://fonts.googleapis.com/css?family=Uncial+Antiqua&display=swap')">Uncial Antiqua</option>
-                  <option value="@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap')">Fjalla One</option>
-                  <option value="@import url('https://fonts.googleapis.com/css?family=Lobster&display=swap')">Lobster</option>
+                  <option value="Roboto">Roboto</option>
+                  <option value="Sigmar One">Sigmar One</option>
+                  <option value="Pacifico">Pacifico</option>
+                  <option value="Uncial Antiqua">Uncial Antiqua</option>
+                  <option value="Lobster">Lobster</option>
                 </select>
               </div>
+              <div class="form-group col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
+              </div>
             </div>
-            <div class="row justify-content-center">
-              <div class="col-4 mt-3 mb-3" id="img">
-                <div class="text-center" id="nomeCachorro">
+          </div>
+          <div class="col-6">
+            <div class="" id="img">
+              <div class="text-center" id="cao">
 
-                </div>
               </div>
             </div>
           </div>
@@ -63,5 +67,6 @@
   src="https://code.jquery.com/jquery-3.4.1.js"
   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
   crossorigin="anonymous"></script>
-  <script src="./api.js"></script>
+  <script src="fontselect-jquery/jquery.fontselect.js"></script>
+  <script src="js/api.js"></script>
 </html>

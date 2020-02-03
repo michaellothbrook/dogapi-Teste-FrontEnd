@@ -21,15 +21,13 @@
           })
           .fail(function() {
             console.log("error");
-          })
-          .always(function() {
-            console.log("complete");
           });
 
 
           //API IMG RAÇAS
           $('#racas').on('change', function() {
             $('img').remove();
+            $('h2').remove();
             var racaEscolhida = $('#racas').val();
             $.ajax({
             url: 'https://dog.ceo/api/breed/'+racaEscolhida+'/images',
@@ -42,14 +40,28 @@
               if (raca != null) {
                   console.log(raca);
                   $('#img').append('<img>');
-                  $('img').attr('src', raca.message[Math.floor(Math.random(0,50))]).css('width','100%');
+                  $('img').attr('src', raca.message[Math.floor(Math.random(0,50))])
+                  .css('width','100%')
+                  .css('height','300px');
+                  $('#cao').append('<h2>');
+                  $('h2').html($('#racas').val())
+                  $('#cor').on('change',function(){
+                    $('h2').css({'color':$('#cor').val()})
+                  })
               }
             })
             .fail(function() {
               console.log("error");
-            })
-            .always(function() {
-              console.log("complete");
             });
+          });
+
+          //FONT API 
+          $('#fonte').on('change',function(){
+            var font = $(this).val().replace(/\+/g,' ');
+            font = font.split(':');
+            console.log(font);
+            $('head').append("<link href='https://fonts.googleapis.com/css?family=" + font + "' rel='stylesheet' type='text/css'>");
+            $('body').css('font-family',font[0]);
           })
+
         });
