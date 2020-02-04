@@ -15,45 +15,47 @@
   <body>
       <div class="container">
         <div class="row">
-          <div class="col-6">
-            <div class="text-center">
-              <h1>CADASTRO</h1>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-12">
-                <select class="form-control" name="racas" id="racas" required>
-                  <option value="">Selecione uma raça</option>
-                </select>
+          <div class="col-md-6">
+            <form action="" class="form" id="formCadastro" method="POST">
+              <div class="text-center">
+                <h1>CADASTRO</h1>
               </div>
-              <div class="form-group col-12">
-                <input type="text" class="form-control" name="nomeCachorro" id="nomeCachorro" placeholder="Nome" required>
+              <div class="form-row">
+                <div class="form-group col-12">
+                  <select class="form-control" name="racas" id="racas" required>
+                    <option value="">Selecione uma raça</option>
+                  </select>
+                </div>
+                <div class="form-group col-12">
+                  <input type="text" class="form-control" name="nomeCachorro" id="nomeCachorro" placeholder="Nome" required>
+                </div>
+                <div class="form-group col-12">
+                  <select class="form-control" name="cor" id="cor" required>
+                    <option value="">Selecione uma cor</option>
+                    <option value="#836FFF">SlateBlue1</option>
+                    <option value="#7FFFD4">Aquamarine</option>
+                    <option value="#90EE90">LightGreen</option>
+                    <option value="#DAA520">Goldenrod</option>
+                    <option value="#4B0082">Indigo</option>
+                  </select>
+                </div>
+                <div class="form-group col-12">
+                  <select class="form-control" name="fonte" id="fonte" required>
+                    <option value="">Selecione uma fonte</option>
+                    <option value="Roboto">Roboto</option>
+                    <option value="Sigmar One">Sigmar One</option>
+                    <option value="Pacifico">Pacifico</option>
+                    <option value="Uncial Antiqua">Uncial Antiqua</option>
+                    <option value="Lobster">Lobster</option>
+                  </select>
+                </div>
+                <div class="form-group col-12 text-center" id="btn-message">
+                  <button type="submit" class="btn btn-primary btn-lg" id="btn-submit">Cadastrar</button>
+                </div>
               </div>
-              <div class="form-group col-12">
-                <select class="form-control" name="cor" id="cor" required>
-                  <option value="">Selecione uma cor</option>
-                  <option value="#836FFF">SlateBlue1</option>
-                  <option value="#7FFFD4">Aquamarine</option>
-                  <option value="#90EE90">LightGreen</option>
-                  <option value="#DAA520">Goldenrod</option>
-                  <option value="#4B0082">Indigo</option>
-                </select>
-              </div>
-              <div class="form-group col-12">
-                <select class="form-control" name="fonte" id="fonte" required>
-                  <option value="">Selecione uma fonte</option>
-                  <option value="Roboto">Roboto</option>
-                  <option value="Sigmar One">Sigmar One</option>
-                  <option value="Pacifico">Pacifico</option>
-                  <option value="Uncial Antiqua">Uncial Antiqua</option>
-                  <option value="Lobster">Lobster</option>
-                </select>
-              </div>
-              <div class="form-group col-12 text-center">
-                <button type="submit" class="btn btn-primary btn-lg">Cadastrar</button>
-              </div>
-            </div>
+            </form>
           </div>
-          <div class="col-6">
+          <div class="col-md-6" id="box-cao">
             <div class="" id="img">
               <div class="text-center" id="cao">
 
